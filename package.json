@@ -2,7 +2,7 @@
   "name": "p5",
   "version": "1.0.0",
   "description": "carrousel-p5",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "sass": "sass --watch ./sass/main.scss:./assets/style.css"
   },
