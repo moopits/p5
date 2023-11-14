@@ -1,0 +1,15 @@
+{
+  "name": "p5",
+  "version": "1.0.0",
+  "description": "carrousel-p5",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./assets/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "p5"
+  },
+  "author": "laurent-thorigny",
+  "license": "Unlicense"
+}
