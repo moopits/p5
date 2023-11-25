@@ -57,10 +57,27 @@ console.log(bannerImg.src) // infos
 console.log("./assets/images/" + slides[1].image) // test
 
 // Get p element from id="banner"
-// Select the element using querySelector
 const bannerP = document.querySelector('#banner p')
 console.log(bannerP)
-bannerP.innerHTML = " " + slides[2].tagLine // test
+//bannerP.innerHTML = " blablabla" + slides[2].tagLine // test
+bannerP.innerHTML = slides[0].tagLine // test
+
+
+// Get span element from id="banner"
+const bannerSPAN = document.querySelector('#banner span')
+console.log(bannerSPAN)
+//bannerSPAN.innerHTML = " blablabla" + slides[2].tagLine // test
+bannerSPAN.innerHTML = slides[0].tagLine // test
+
+
+// decoupe de la string tagLine en 2 sans SPAN
+const tagLine = slides[0].tagLine
+console.log(tagLine) // infos
+const match = tagLine.match(/(.*?)<span>(.*?)<\/span>/)
+const textAvantSpan = match[1]
+console.log(textAvantSpan) // infos
+const textApresPremierSpan = match[2]
+console.log(textApresPremierSpan) // infos
 
 // Create tab ONLY .dot for indexing
 const dotAll = document.querySelectorAll('.dot');
@@ -100,10 +117,10 @@ const changeImgBall = () => {
 
 	// Remove 'dot_selected' class from all dots
     dotAll.forEach(dot => dot.classList.remove('dot_selected'));
-	console.log(dotAll)
+	console.log(dotAll) // infos
 	// Select a dot with [p] and add 'dot_selected' class
 	dotAll[p].classList.add('dot_selected');
-	console.log(dotAll)
+	console.log(dotAll) // infos
 
 	// Change the 'image' from array objects
 	bannerImg.src = "./assets/images/slideshow/" + slides[p].image
@@ -111,10 +128,26 @@ const changeImgBall = () => {
 	// Change the 'tagLine' from array objects
 	// Modify the content using textContent
 	/*bannerP.textContent = slides[p].tagLine*/
-	const text = 'texte<span>texte</span>texte';
-	const match = text.match(/<span>(.*?)<\/span>/);
+	const text = slides[p].tagLine
+	console.log('tagLine: ' + text) // infos
+	
+	// get 2 strings from array slides -> tagLine
+	const tagLine = slides[0].tagLine
+	console.log(tagLine) // infos
+	const match = tagLine.match(/(.*?)<span>(.*?)<\/span>/)
+	const textAvantSpan = match[1]
+	console.log(textAvantSpan) // infos
+	const textApresPremierSpan = match[2]
+	console.log(textApresPremierSpan) // infos
 
-	const text1 = match[1];
-	const text2 = match[2];
+	// update p element from id="banner"
+	bannerP.innerHTML = slides[p].tagLine
+
+	// update span element from id="banner"
+	bannerSPAN.innerHTML = slides[p].tagLine
+
+
+
+
 
 }
